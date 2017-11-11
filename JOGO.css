@@ -13,10 +13,14 @@ div.form{
 }
 
 div.infoJogador{
-	width: 300px;
+	width: 600px;
 	border: 1px solid black;
 	padding: 1%;
 	margin: 0 auto;
+	text-align: center;
+}
+p.resultado{
+	text-align: center;
 }
 
 div#formulario{
@@ -28,12 +32,25 @@ button#VsComputador, #VsPessoa{
 	width: 200px;
 }
 
+div.escolher{
+	text-align: center;
+}
+
 div.botao{
 	display: inline-block;
+	align-items: center;
 }
 
 p{
 	padding: 1px;
+}
+#interacao{
+	text-align: center;
+	margin-top: 1%;
+}
+
+#enviarItemJogador2, #enviarItemJogador1{
+	margin-top: 1%;
 }
 button#submitFormulario{
 	position: absolute;

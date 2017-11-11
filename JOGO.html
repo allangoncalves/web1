@@ -31,24 +31,56 @@
 
 		</div>
 		<div id="Cadastro">
+			<div id="formulario" style="display: none">
+				<div class="form" id="jogador1" style="display: none">
+					<p>Jogador 1</p>
+					Nome: <input type="text" name="nome1"><br>
+					Sexo: <input type="radio" name="sexo1" value="feminino" checked> Feminino
+						  <input type="radio" name="sexo1" value="masculino"> Masculino <br>	
+				</div>
+				<div class="form" id="jogador2" style="display: none">
+					<p>Jogador 2</p>
+					Nome: <input type="text" name="nome2"> <br>
+					Sexo: <input type="radio" name="sexo2" value="feminino" checked> Feminino
+						  <input type="radio" name="sexo2" value="masculino"> Masculino <br>
+				</div>
+			</div>
+
 		</div>	
 		<div id="Jogo" style="display:none">
 			<div id="jg1" class="infoJogador">
-				<p>Nome: j1.nome<br>Sexo: j1.sexo</p>
-				<input type="radio" name="escolhaJogo1" value="PEDRA" checked> Pedra
-				<input type="radio" name="escolhaJogo1" value="PAPEL"> Papel
-				<input type="radio" name="escolhaJogo1" value="TESOURA"> Tesoura
-				<button id="enviarItemJogador1" class="btn btn-primary">Escolher</button>
+				<p id="paragrafoInfo1"></p>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo1" value="PEDRA" checked> Pedra	
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo1" value="PAPEL"> Papel	
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo1" value="TESOURA"> Tesoura	
+				</label>
 			</div>
+			
 			<div id="jg2" class="infoJogador" style="display:none">
-				<p>Nome: j2.nome<br>Sexo: j2.sexo</p>
-				<input type="radio" name="escolhaJogo2" value="PEDRA" checked=""> Pedra
-				<input type="radio" name="escolhaJogo2" value="PAPEL"> Papel
-				<input type="radio" name="escolhaJogo2" value="TESOURA"> Tesoura
-				<button id="enviarItemJogador2" class="btn btn-primary">Escolher</button>
+				<p id="paragrafoInfo2"></p>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo2" value="PEDRA" checked=""> Pedra	
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo2" value="PAPEL"> Papel
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="escolhaJogo2" value="TESOURA"> Tesoura	
+				</label>
+				
+			</div>
+			<div class="escolher">
+				<button id="enviarItemJogador1" class="btn btn-primary" style="display: none">Escolher</button>
+				<button id="enviarItemJogador2" class="btn btn-primary" style="display: none">Escolher</button>	
 			</div>
 			<div id="interacao">
-				<p id="painel"></p>
+				<button id="desistir1" class="btn btn-danger" style="display: none">Jogador 1 desistir</button>
+				<button id="desistir2" class="btn btn-danger" style="display: none">Jogador 2 desistir</button>
 			</div>
 			<div id="historico">
 				
