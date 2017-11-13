@@ -91,22 +91,32 @@ function computarTempo(nome, horas, minutos, segundos) {
 function desistir(id) {
 	$("#Jogo").hide();
 	$("#TipoJogo").attr('style', 'display: inherit');
+	$("#tempoTotal").attr('style', 'display: inherit');
 	if (id == 1){
+		var i = verificarJogador(j1.nome);
 		$("#desistir2").hide();
 		$("#score1").text(0);
 		if(j2.nome != "!@#123$$$"){
 			$("input[name='nome1']").val(j2.nome);
-			$("input[name='sexo1']").val(j2.sexo);
-			j1 = j2;	
+			$("input[name='sexo1']:checked").val(j2.sexo);
+			j1 = j2;
+			$("input[name='nome2']").val("");
+			$("input[name='sexo2']:checked").val("feminino");
+		}
+		else{
+			$("input[name='nome1']").val("");
+			$("input[name='sexo1']:checked").val("feminino");
 		}
 		$("#jogador2").hide();
+		$(".time").text("Tempo total do jogador "+jogadores[i].nome+": Horas:"+jogadores[i].horas+" Minutos:"+jogadores[i].minutos+" Segundos:"+jogadores[i].segundos);
 	}
 	else{
+		var i = verificarJogador(j2.nome);
 		$("#desistir2").hide();
 		$("#score2").text(0);
 		$("#jogador2").hide(); 
-		j1.nome = "";
-		j1.sexo = "feminino"
+		$(".time").text("Tempo total do jogador "+jogadores[i].nome+": Horas:"+jogadores[i].horas+" Minutos:"+jogadores[i].minutos+" Segundos:"+jogadores[i].segundos);
+		$("input[name='nome2']").val("");
 		j2 = computador;
 	}
 	
@@ -391,6 +401,7 @@ function InterfaceJogo(){
 	if(modo_atual == ModoJogo.PvP){
 		$("#paragrafoInfo2").text("Nome: "+j2.nome);
 		$("#enviarItemJogador1").attr('style','display: inline-block');
+		$("#enviarItemJogador2").hide();
 		$("#desistir1").attr('style', 'display: inline-block');
 		$("#desistir2").attr('style', 'display: inline-block');
 		$("#enviarItemJogador1").off().click(
