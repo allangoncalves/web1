@@ -7,9 +7,18 @@ body{
 	color: #0069D9;
 }
 
-p#totalPartidas, div#historico{
+p#totalPartidas{
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	margin-top: 1%;
+}
+
+div#historico{
+	color: black;
+	background-color: #DBF9C7;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	max-width: 25%;
+	margin: 0 auto;
 }
 
 
@@ -36,7 +45,7 @@ div.infoJogador{
 }
 p.resultado{
 	text-align: center;
-	border: 3px solid #0069D9; 
+	border: 3px solid black; 
 }
 
 div#formulario{
@@ -75,4 +84,5 @@ div.score{
 	margin-top: 2px;
 	padding: 10px;
 	max-height: 40px;
+	margin-bottom: 1%;
 }
