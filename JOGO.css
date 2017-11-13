@@ -36,6 +36,7 @@ div.infoJogador{
 }
 p.resultado{
 	text-align: center;
+	border: 3px solid #0069D9; 
 }
 
 div#formulario{
