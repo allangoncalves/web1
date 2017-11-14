@@ -95,7 +95,6 @@ function desistir(id) {
 	if (id == 1){
 		var i = verificarJogador(j1.nome);
 		$("#desistir2").hide();
-		$("#score1").text(0);
 		if(j2.nome != "!@#123$$$"){
 			$("input[name='nome1']").val(j2.nome);
 			$("input[name='sexo1']:checked").val(j2.sexo);
@@ -113,13 +112,14 @@ function desistir(id) {
 	else{
 		var i = verificarJogador(j2.nome);
 		$("#desistir2").hide();
-		$("#score2").text(0);
 		$("#jogador2").hide(); 
 		$(".time").text("Tempo total do jogador "+jogadores[i].nome+": Horas:"+jogadores[i].horas+" Minutos:"+jogadores[i].minutos+" Segundos:"+jogadores[i].segundos);
 		$("input[name='nome2']").val("");
 		j2 = computador;
 	}
-	
+	$("#score1").text(0);
+	$("#score2").text(0);
+	jogadores[i] = 0;
 }
 
 function criarJogadores(){
@@ -220,24 +220,18 @@ function verificarResultado(resultado1, resultado2) {
 			if(resultado2 == resultado1){
 				jogadores[indice1].pontuacao++;
 				jogadores[indice2].pontuacao++;
-				$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-					j1.nome+'	vs	'+j2.nome+'<br>'+
-					resultado1+' == '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+				$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 				return 0;
 			}
 			else{
 				if(resultado2 == "PAPEL"){
 					jogadores[indice2].pontuacao += 3;
-					$("#historico").prepend('<p class="resultado">Jogador 2 ganhou.<br>'+
-						j1.nome+'	vs	'+j2.nome+'<br>'+
-						resultado1+' < '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+					$('.historico > tbody:first').prepend('<tr><td>'+j2.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 					return 2;
 				}
 				else{
 					jogadores[indice1].pontuacao += 3;
-					$("#historico").prepend('<p class="resultado">Jogador 1 ganhou.<br>'+
-						j1.nome+'	vs	'+j2.nome+'<br>'+
-						resultado1+' > '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+					$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 					return 1;
 				}
 			}
@@ -247,23 +241,17 @@ function verificarResultado(resultado1, resultado2) {
 				if(resultado2 == resultado1){
 					jogadores[indice1].pontuacao++;
 					jogadores[indice2].pontuacao++;
-					$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-						j1.nome+'	vs	'+j2.nome+'<br>'+
-						resultado1+' == '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+					$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 					return 0;
 				}else{
 					if(resultado2 == "PEDRA"){
 						jogadores[indice1].pontuacao += 3;
-						$("#historico").prepend('<p class="resultado">Jogador 1 ganhou.<br>'+
-							j1.nome+'	vs	'+j2.nome+'<br>'+
-							resultado1+' > '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return 1;
 					}
 					else{
 						jogadores[indice2].pontuacao += 3;
-						$("#historico").prepend('<p class="resultado">Jogador 2 ganhou.<br>'+
-							j1.nome+'	vs	'+j2.nome+'<br>'+
-							resultado1+' < '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>'+j2.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return 2;
 					}
 				}
@@ -273,24 +261,18 @@ function verificarResultado(resultado1, resultado2) {
 					if(resultado2 == resultado1){
 						jogadores[indice1].pontuacao++;
 						jogadores[indice2].pontuacao++;
-						$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-							j1.nome+'	vs	'+j2.nome+'<br>'+
-							resultado1+' == '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return 0;
 					}
 					else{
 						if(resultado2 == "PEDRA"){
 							jogadores[indice2].pontuacao += 3;
-							$("#historico").prepend('<p class="resultado">Jogador 2 ganhou.<br>'+
-								j1.nome+'	vs	'+j2.nome+'<br>'+
-								resultado1+' < '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+							$('.historico > tbody:first').prepend('<tr><td>'+j2.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 							return 2;
 						}
 						else{
 							jogadores[indice1].pontuacao += 3;
-							$("#historico").prepend('<p class="resultado">Jogador 1 ganhou.<br>'+
-								j1.nome+'	vs	'+j2.nome+'<br>'+
-								resultado1+' > '+resultado2+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+							$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 							return 1;
 						}
 					}
@@ -308,24 +290,18 @@ function verificarResultado(resultado1, resultado2) {
 				if (pc == resultado1){
 					jogadores[indice1].pontuacao++;
 					jogadores[indice2].pontuacao++;
-					$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-							j1.nome+'	vs	COMPUTADOR<br>'+
-							resultado1+' == '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+					$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 					return 0;
 				}
 				else{
 					if(pc == "PAPEL"){
 						jogadores[indice2].pontuacao += 3;
-						$("#historico").prepend('<p class="resultado">O Computador ganhou.<br>'+
-							j1.nome+'	vs	COMPUTADOR<br>'+
-							resultado1+' < '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>COMPUTADOR</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return -1;
 					}
 					else{
 						jogadores[indice1].pontuacao += 3;
-						$("#historico").prepend('<p class="resultado">O Jogador 1 ganhou.<br>'+
-							j1.nome+'	vs	COMPUTADOR<br>'+
-							resultado1+' > '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return 1;
 					}
 				}
@@ -335,24 +311,18 @@ function verificarResultado(resultado1, resultado2) {
 					if(pc == resultado1){
 						jogadores[indice1].pontuacao++;
 						jogadores[indice2].pontuacao++;
-						$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-							j1.nome+'	vs	COMPUTADOR<br>'+
-							resultado1+' == '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+						$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 						return 0;
 					}
 					else{
 						if(pc == "PEDRA"){
 							jogadores[indice1].pontuacao += 3;
-							$("#historico").prepend('<p class="resultado">O Jogador 1 ganhou.<br>'+
-								j1.nome+'	vs	COMPUTADOR<br>'+
-								resultado1+' > '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+							$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 							return 1;
 						}
 						else{
 							jogadores[indice2].pontuacao += 3;
-							$("#historico").prepend('<p class="resultado">O Computador ganhou.<br>'+
-								j1.nome+'	vs	COMPUTADOR<br>'+
-								resultado1+' < '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+							$('.historico > tbody:first').prepend('<tr><td>COMPUTADOR</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 							return -1;
 						}
 					}
@@ -362,24 +332,18 @@ function verificarResultado(resultado1, resultado2) {
 						if(pc == resultado1){
 							jogadores[indice1].pontuacao++;
 							jogadores[indice2].pontuacao++;
-							$("#historico").prepend('<p class="resultado">EMPATE<br>'+
-								j1.nome+'	vs	COMPUTADOR<br>'+
-								resultado1+' == '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+							$('.historico > tbody:first').prepend('<tr><td>EMPATE</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 							return 0;
 						}
 						else{
 							if(pc == "PAPEL"){
 								jogadores[indice1].pontuacao += 3;
-								$("#historico").prepend('<p class="resultado">O Jogador 1 ganhou.<br>'+
-									j1.nome+'	vs	COMPUTADOR<br>'+
-									resultado1+' > '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+								$('.historico > tbody:first').prepend('<tr><td>'+j1.nome+'</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 								return 1;
 							}
 							else{
 								jogadores[indice2].pontuacao += 3;
-								$("#historico").prepend('<p class="resultado">O Computador ganhou.<br>'+
-									j1.nome+'	vs	COMPUTADOR<br>'+
-									resultado1+' < '+pc+'<br>Tempo total da partida:<br> Horas:'+horas_total_partida+' Minutos: '+minutos_total_partida+' Segundos:'+segundos_total_partida+'</p>');
+								$('.historico > tbody:first').prepend('<tr><td>COMPUTADOR</td><td>'+resultado1+'</td><td>'+resultado2+'</td><td>'+horas_total_partida+':'+minutos_total_partida+':'+segundos_total_partida+'</td></tr>');
 								return -1;
 							}
 						}
@@ -389,6 +353,8 @@ function verificarResultado(resultado1, resultado2) {
 
 		}
 	}
+	
+	//$('.historico tbody').prepend('<tr><td>a</td><td>b</td><td>c</td><td>d</td></tr>');
 }
 
 function InterfaceJogo(){
@@ -396,8 +362,6 @@ function InterfaceJogo(){
 	$("#paragrafoInfo1").text("Nome: "+j1.nome);
 	var r1, r2;
 	$("#Jogo").attr('style','display: inherit');
-	$("#score1").text(j1.pontuacao);
-	$("#score2").text(j2.pontuacao);
 	if(modo_atual == ModoJogo.PvP){
 		$("#paragrafoInfo2").text("Nome: "+j2.nome);
 		$("#enviarItemJogador1").attr('style','display: inline-block');

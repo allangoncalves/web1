@@ -1,6 +1,7 @@
 
 body{
 	background-image: url("fundo.jpg");
+	background-size: cover;
 	font-family: verdana;
 	font-size: 100%;
 	font-weight: bold;
@@ -15,9 +16,13 @@ p#totalPartidas{
 
 div#historico{
 	color: black;
-	background-color: #DBF9C7;
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-	max-width: 25%;
+}
+
+table, th, td{
+	border:1px solid black;
+	border-collapse: collapse;
+	width: 500px;
 	margin: 0 auto;
 }
 
