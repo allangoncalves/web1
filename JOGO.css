@@ -5,13 +5,16 @@ body{
 	font-family: verdana;
 	font-size: 100%;
 	font-weight: bold;
-	color: #0069D9;
 }
 
-p#totalPartidas{
+p#totalPartidas, #paragrafoInfo{
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	margin-top: 1%;
+}
+#paragrafoInfo{
+	font-size: 200%;
+	font-weight: bold;
 }
 
 div#historico{
@@ -19,38 +22,33 @@ div#historico{
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-table, th, td{
-	border:1px solid black;
+td{
+	border: 1px solid black;
 	border-collapse: collapse;
-	width: 500px;
-	margin: 0 auto;
+}
+th{
+	border: 1px solid white;
 }
 
 
-div#TipoJogo{
+div#IniciarJogo{
 	text-align: center;
 
 }
 div.form{
-	border: 3px solid #0069D9;
+	border: 3px solid #28A745;
 	padding:10px;
 	width: 340px;
 	position: relative;
 	margin-bottom: 5px;
-	background-color: white;
+	border-radius: 10px;
 }
 
 div.infoJogador{
 	width: 600px;
-	border: 3px solid #0069D9;
 	padding: 1%;
 	margin: 0 auto;
 	text-align: center;
-	background-color: white;
-}
-p.resultado{
-	text-align: center;
-	border: 3px solid black; 
 }
 
 div#formulario{
@@ -58,7 +56,7 @@ div#formulario{
 	margin:0 auto;
 }
 
-button#VsComputador, #VsPessoa{
+button#VsComputador{
 	width: 220px;
 }
 
@@ -76,18 +74,19 @@ div.botao{
 	margin-top: 1%;
 }
 
-#enviarItemJogador2, #enviarItemJogador1{
-	margin-top: 1%;
+#enviarItemJogador{
+	width: 200px;
 }
 button#submitFormulario{
 	position: absolute;
 }
 
 div.score{
-	background-color: #0069D9;
+	background-color: #007BFF;
 	color: white;
 	margin-top: 2px;
 	padding: 10px;
 	max-height: 40px;
 	margin-bottom: 1%;
+	border-radius: 5px;
 }

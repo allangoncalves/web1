@@ -15,22 +15,17 @@
 	</script>
 	<div id="principal">
 
-		<div id="TipoJogo">
+		<div id="IniciarJogo">
 
 			<div class="botao">
 				<button class="btn btn-success" id="VsComputador" type="button">
-					Pessoa vs Computador
-				</button>
-			</div>
-
-			<div class="botao">
-				<button class="btn btn-danger" id="VsPessoa" type="button">
-					Pessoa vs Pessoa
+					Iniciar Jogo
 				</button>
 			</div>
 
 			<div id="tempoTotal" style="display: none">
-				<p class="time"></p>
+				<p class="tempo"></p>
+				<p id="paragrafoTempo"></p>
 			</div>
 
 		</div>
@@ -38,58 +33,37 @@
 			<div id="formulario" style="display: none">
 				<div class="form" id="jogador1" style="display: none">
 					<p>Jogador 1</p>
-					Nome: <input type="text" name="nome1"><br>
-					Sexo: <input type="radio" name="sexo1" value="feminino" checked> Feminino
-						  <input type="radio" name="sexo1" value="masculino"> Masculino <br>	
-				</div>
-				<div class="form" id="jogador2" style="display: none">
-					<p>Jogador 2</p>
-					Nome: <input type="text" name="nome2"> <br>
-					Sexo: <input type="radio" name="sexo2" value="feminino" checked> Feminino
-						  <input type="radio" name="sexo2" value="masculino"> Masculino <br>
+					Nome: <input type="text" name="nome"><br>
+					Sexo: <input type="radio" name="sexo" value="feminino" checked="true"> Feminino
+						  <input type="radio" name="sexo" value="masculino"> Masculino <br>	
 				</div>
 			</div>
 
 		</div>	
 		<div id="Jogo" style="display:none">
 			<div id="jg1" class="infoJogador">
-				<p id="paragrafoInfo1"></p>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo1" value="PEDRA" checked> Pedra	
+				<p id="paragrafoInfo"></p>
+				<label class="btn btn-success">
+					<input type="radio" name="escolhaJogo" value="PEDRA" checked="true"> Pedra	
 				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo1" value="PAPEL"> Papel	
+				<label class="btn btn-success">
+					<input type="radio" name="escolhaJogo" value="PAPEL"> Papel	
 				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo1" value="TESOURA"> Tesoura	
+				<label class="btn btn-success">
+					<input type="radio" name="escolhaJogo" value="TESOURA"> Tesoura	
 				</label>
 			</div>
 			
-			<div id="jg2" class="infoJogador" style="display:none">
-				<p id="paragrafoInfo2"></p>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo2" value="PEDRA" checked=""> Pedra	
-				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo2" value="PAPEL"> Papel
-				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="escolhaJogo2" value="TESOURA"> Tesoura	
-				</label>
-				
-			</div>
 			<div class="escolher">
-				<button id="enviarItemJogador1" class="btn btn-primary" style="display: none">Escolher</button>
-				<button id="enviarItemJogador2" class="btn btn-primary" style="display: none">Escolher</button>	
+				<button id="enviarItemJogador" class="btn btn-primary" style="display: none">Escolher</button>
 			</div>
 			<div id="interacao">
 				<div style="display: inline-block">
-					<button id="desistir1" class="btn btn-danger" style="display: none">Jogador 1 desistir</button>
-					<button id="desistir2" class="btn btn-danger" style="display: none">Jogador 2 desistir</button>	
+					<button id="desistir" class="btn btn-danger" style="display: none">Desistir</button>
 				</div>
 				<br>
 				<div>
-					<p id="totalPartidas">Total de partidas: 0</p>
+					<p id="totalPartidas">TOTAL DE PARTIDAS: 0</p>
 					<p>PLACAR:</p>	
 				</div>
 				
@@ -102,20 +76,7 @@
 				</div>
 					
 			</div>
-			<div id="historico">
-				<table class="historico">
-					<thead>
-						<tr>
-							<th>VENCEDOR</th>
-							<th>ESCOLHA 1</th>
-							<th>ESCOLHA 2</th>
-							<th>TEMPO DA PARTIDA</th>
-						</tr>	
-					</thead>
-					<tbody>
-						
-					</tbody>
-				</table>
+			<div id="historico" class="container">
 			</div>
 		</div>
 
